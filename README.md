@@ -4,31 +4,31 @@ This repository contains a pipeline which perfoms quality control, trimminng, al
 
 # Containerisation
 
-Trimmomatic container was created using a singularity definition file, located in the "sif/" directory.
-To build the container image : singularity build trimmomatic.sif sif/trim.def
-Other tools used in the pipeline were executed using "singularity load" available on the environment. 
+- Trimmomatic container was created using a singularity definition file, located in the "sif/" directory.
+- To build the container image : singularity build trimmomatic.sif sif/trim.def
+- Other tools used in the pipeline were executed using "singularity load" available on the environment. 
 
 # Running the pipeline
 
-The pipeline is configured using nextflow.config file.
-To run the pipeline : ./nextflow run -profile local main.nf -resume
-This execution run from FastQC until variant calling, producing a VCF file.
+- The pipeline is configured using nextflow.config file.
+- To run the pipeline : ./nextflow run -profile local main.nf -resume
+- This execution run from FastQC until variant calling, producing a VCF file.
 
 # Variant.db creation
 
 The following columns were extracted from the .vcf file:
 
-.Chromosome (chrom)
-.Position (pos)
-.Reference allele (ref)
-.Alternate allele (alt)
-.quality (qual)
+- Chromosome (chrom)
+- Position (pos)
+- Reference allele (ref)
+- Alternate allele (alt)
+- quality (qual)
 
 bcftools query used : bcftools query -f '%CHROM\t%POS\t%REF\t%ALT\t%QUAL\n' variants.vcf > variants.tsv
 
-The extractd data was imported into SQLite3 database: 
-sqlite3 variants.db > .mode tabs > .import variants.tsv variants
-This created variants table in variants.db
+- The extractd data was imported into SQLite3 database: 
+- sqlite3 variants.db; .mode tabs; .import variants.tsv variants
+- This created variants table in variants.db
 
 # Output
 
