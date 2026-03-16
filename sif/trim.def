@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: ubuntu:22.04
+
+%labels
+Maintaner Aluwani
+Version 1.0
+Email aluwaninem8@gmail.com
+
+%environment
+export PATH=/opt/Trimmomatic-0.39:$PATH
+export LC_ALL=C
+
+%post
+apt-get -y update
+apt-get install -y build-essential
+apt-get install -y wget
+apt-get install -y default-jre
+apt-get install -y unzip
+
+cd /opt
+wget https://github.com/usadellab/Trimmomatic/releases/download/v0.39/Trimmomatic-0.39.zip
+unzip Trimmomatic-0.39.zip
+rm Trimmomatic-0.39.zip
+
+%runscript
+exec java -jar trimmomatic-0.39.jar "$@"
