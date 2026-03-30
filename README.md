@@ -27,7 +27,7 @@ The following columns were extracted from the .vcf file:
 bcftools query used : bcftools query -f '%CHROM\t%POS\t%REF\t%ALT\t%QUAL\n' variants.vcf > variants.tsv
 
 - The extractd data was imported into SQLite3 database: 
-- sqlite3 variants.db; .mode tabs; .import variants.tsv variants
+- sqlite3 variants.db -> .mode tabs -> .import variants.tsv variants
 - This created variants table in variants.db
 
 # Output
@@ -38,15 +38,15 @@ The final output of this project is variants.db which contains variant informati
 
 A subset of aligned sequencing data (BAM file) was used to inspect a candidate mutation on chromosome 19.
 # Mutation Details:
-Chromosome: chr19
-Position: 61766
-Region analyzed: 61566–61966
+        - Chromosome: chr19
+        - Position: 61766
+        - Region analyzed: 61566–61966
 
 # Methods:
 - Pick a random mutation from VCF file, mutation POS= 61766
 - Subset bam file to a region of interest :
-        samtools view -b *sorted.bam chr19:61566-61966 > subset.bam
-        samtools index subset.bam
+        - samtools view -b *sorted.bam chr19:61566-61966 > subset.bam
+        - samtools index subset.bam
 - Load subset.bam and subset.bam.bai to files to IGV, to visualise using hg19
 - Navigate to chr19:61766 to visualise the mutation
 
