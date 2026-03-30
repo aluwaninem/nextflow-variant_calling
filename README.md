@@ -52,7 +52,7 @@ Region analyzed: 61566–61966
 
 # Results:
 - Mismatches between read and reference genome were observed in IGV
-- The reference genome contains an A, while the aligned reads show a C
+- The reference genome contains an A, while the aligned read show a C
   <img width="1919" height="931" alt="Screenshot 2026-03-30 100930" src="https://github.com/user-attachments/assets/ec56080f-32c4-4b8d-8126-c8ea5ee6391f" />
   <img width="1919" height="918" alt="Screenshot 2026-03-30 101448" src="https://github.com/user-attachments/assets/ef1dced5-92ee-49fa-b9a5-aada633e0401" />
 
