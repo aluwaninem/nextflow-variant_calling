@@ -44,7 +44,7 @@ A subset of aligned sequencing data (BAM file) was used to inspect a candidate m
 
 # Methods:
 - Pick a random mutation from VCF file, mutation POS= 61766
-- Subset bam file to a region of interest :
+- Subset bam file to a region of interest:
         - samtools view -b *sorted.bam chr19:61566-61966 > subset.bam
         - samtools index subset.bam
 - Load subset.bam and subset.bam.bai to files to IGV, to visualise using hg19
